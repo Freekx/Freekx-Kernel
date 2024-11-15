@@ -30,11 +30,21 @@ void kputc(char c) {
     switch(c){
 
         case '\n': {
-
           term_col = 0;
           term_row++;
           break;
+        }
 
+        case '\t': {
+            term_col= 0;
+            term_row = 4;
+            break;
+        }
+
+        case '\v': {
+            term_col = 4;
+            term_row = 0;
+            break;
         }
 
         default: {
@@ -67,7 +77,6 @@ void kprintf(const char* str) {
 
 void krl_main() {
 
-    kprintf("Hello From Freekx Kernel!!\n");
-    kprintf("NO GNU LLVM IS KING!\n");
 
+    kprintf("\v Freekx");
 }
